@@ -1,0 +1,15 @@
+{
+  "name": "com.sdfimage.ugui",
+  "version": "0.3.0",
+  "displayName": "SDF Image",
+  "description": "Automatic asynchronous SDF baking attached to source sprites, with uGUI outlines and soft shadows.",
+  "unity": "6000.0",
+  "dependencies": { "com.unity.ugui": "2.0.0" },
+  "samples": [
+    {
+      "displayName": "Outline and Shadow Demo",
+      "description": "Source sprites with automatic SDF generation and a uGUI demo prefab.",
+      "path": "Samples~/Demo"
+    }
+  ]
+}

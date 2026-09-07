@@ -1,0 +1,37 @@
+{
+    "entries": [
+        {
+            "path": "Assets/SdfEdgeRepro/UserSprite.png",
+            "guid": "389e2f31a9df19c4fb5ea3e4696ef853",
+            "sourceId": 21300000,
+            "descriptorId": -7648559225360105323,
+            "colorId": -7884752024563530648,
+            "distanceId": 290654881510826700
+        },
+        {
+            "path": "Assets/SdfDemo/Star.png",
+            "guid": "ff04d4c76e8c60a4eb35b5c2d1b2d63f",
+            "sourceId": 21300000,
+            "descriptorId": -7648559225360105323,
+            "colorId": -7884752024563530648,
+            "distanceId": 290654881510826700
+        },
+        {
+            "path": "Assets/SdfDemo/Ring.png",
+            "guid": "408c3f7ef9b228d408639522c1e3b293",
+            "sourceId": 21300000,
+            "descriptorId": -7648559225360105323,
+            "colorId": -7884752024563530648,
+            "distanceId": 290654881510826700
+        },
+        {
+            "path": "Assets/SdfDemo/RoundedPanel.png",
+            "guid": "4485999bacdd28045ac642abf97150c9",
+            "sourceId": 21300000,
+            "descriptorId": -7648559225360105323,
+            "colorId": -7884752024563530648,
+            "distanceId": 290654881510826700
+        }
+    ],
+    "sampleImages": 6
+}
