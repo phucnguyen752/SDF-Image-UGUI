@@ -7,7 +7,7 @@ Unity 6 / uGUI outlines and soft shadows, with asynchronous SDF baking embedded 
 In Unity Package Manager, choose **Install package from Git URL**:
 
 ```text
-https://github.com/phucnguyen752/sdf-image.git#0.3.0
+https://github.com/phucnguyen752/sdf-image.git#0.3.1
 ```
 
 Requires Unity 6000.0 and uGUI 2.0.0. The version tag and `upm` branch contain the package at the repository root. The `main` branch contains the Unity development project, with the library in `Assets/SDFImage`.

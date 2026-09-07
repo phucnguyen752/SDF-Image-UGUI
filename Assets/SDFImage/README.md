@@ -88,10 +88,10 @@ Hàng trên: outline ngoài, trong, giữa kèm shadow. Hàng dưới: glow, pan
 Trong Package Manager, chọn cài package từ Git URL và nhập:
 
 ```text
-https://github.com/phucnguyen752/sdf-image.git#0.3.0
+https://github.com/phucnguyen752/sdf-image.git#0.3.1
 ```
 
-Tag `0.3.0` chứa package `com.sdfimage.ugui` ngay tại root; không cần thêm `?path=`. Nhánh `main` chứa project Unity đầy đủ, thư viện ở `Assets/SDFImage`; nhánh `upm` dành cho Package Manager. Dùng tag để cố định phiên bản.
+Tag `0.3.1` chứa package `com.sdfimage.ugui` ngay tại root; không cần thêm `?path=`. Nhánh `main` chứa project Unity đầy đủ, thư viện ở `Assets/SDFImage`; nhánh `upm` dành cho Package Manager. Dùng tag để cố định phiên bản.
 
 Cũng có thể copy `Assets/SDFImage` cùng `.meta` sang project Unity 6 có uGUI 2.0, hoặc để một bản ngoài Assets và dùng Package Manager → Add package from disk với `package.json`. Chỉ giữ một bản cài. Texture nguồn cần ở trong Assets để lưu cấu hình và import dữ liệu đính kèm. Shader trong Resources được giữ trong build. Quy trình phát hành xem [Publishing.md](Documentation~/Publishing.md).
 

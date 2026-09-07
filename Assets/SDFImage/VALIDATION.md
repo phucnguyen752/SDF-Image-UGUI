@@ -1,6 +1,12 @@
 # Validation — 2026-09-07
 
-## Environment and results
+## 0.3.1 metadata patch
+
+Version **0.3.1** adds the package author name `Phuc Nguyen` and GitHub profile URL, and updates release documentation. The manifest parses as valid JSON and the release diff passes whitespace checks. Runtime code, Editor code, shaders, tests, samples, and all `.meta` files are unchanged from **0.3.0**.
+
+Unity test suites, clean-project installation, and Package Manager visual verification were not rerun for this metadata-only patch. The results below belong to **0.3.0**.
+
+## 0.3.0 environment and results
 
 SDF Image **0.3.0**, Unity **6000.0.83f1**, Windows, Direct3D 11 / NVIDIA RTX 3060. Validation ran in isolated projects under the source project's ignored `Build` directory. The consuming project's source metadata and one generated descriptor reference in `DialogWin.prefab` were migrated for the rename; no scene was changed by this audit.
 
