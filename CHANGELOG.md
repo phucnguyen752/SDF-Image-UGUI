@@ -1,0 +1,31 @@
+# Changelog
+
+## 0.3.0 — 2026-09-07
+
+- Rename the distribution to `Assets/SDFImage`, package `com.sdfimage.ugui`, and namespace/assemblies `SDFUI`; update resources, cache, import metadata, demo paths, and documentation.
+- Preserve script GUIDs and migrate source opt-in metadata, cached data, and serialized generated-object references in the consuming project.
+- Keep translucent interiors intact when SDF images are stretched unevenly.
+- Keep standard Image layout sizes stable when effects are enabled or disabled, and reuse sprite attachment lookup during style animation.
+- Repair cache publication state, include Resources/preloaded dependencies in build checks, and preserve other tools' appended importer metadata.
+- Track published cache data through importer custom dependencies to keep restored and generated artifacts consistent.
+- Repaint source inspectors only while generation is active.
+
+## 0.2.0 — 2026-09-07
+
+- Rename the package display name, component, and menus to SDF Image.
+- Add a custom 64x64 component icon exported from editable SVG, stored with the script importer for portable Editor display.
+- Inherit Unity Image and accept source sprites directly; no separate Auto Bake component for new images.
+- Keep Unity Image controls visible in their standard Inspector layout, with Generate and effect controls below.
+- Add Outline/Shadow toggles, preserving style settings when disabled; fold less-used settings away.
+- Support standard sprite/overrideSprite changes and normal Image rendering when SDF is unavailable or the image mode does not support SDF.
+- Preserve old baked references and offer Undo-enabled removal of the legacy helper.
+- Fix dark seams between antialiased sprite edges and outlines without rebaking textures.
+
+## 0.1.0 — 2026-09-07
+
+- Unity 6 uGUI image with outer/inner/center outlines, shadow, glow, Simple and Sliced rendering.
+- Source Sprite binding through SdfAutoBake and opt-in Generate SDF on the source texture.
+- Bounded asynchronous GPU readback, cancelable CPU distance transform, and Library cache.
+- Generated color/distance/descriptor subassets in the original source image; descriptor attached to its Sprite.
+- Stable generated references, automatic refresh, and preservation of completed data when generation is disabled.
+- Inspectors, demo generation, build readiness checks, and algorithm/import/GPU rendering tests.

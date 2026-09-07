@@ -1,0 +1,6 @@
+{
+  "name": "SDFUI",
+  "rootNamespace": "SDFUI",
+  "references": ["UnityEngine.UI"],
+  "autoReferenced": true
+}

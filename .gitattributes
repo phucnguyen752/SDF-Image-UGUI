@@ -1,0 +1,3 @@
+# Preserve validation evidence exactly as Unity wrote it.
+Documentation~/*.xml -text
+Documentation~/*.json -text

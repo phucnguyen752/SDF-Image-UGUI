@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <title>SDF Image component icon</title>
+  <rect x="5" y="7" width="54" height="50" rx="10" stroke="#C2C2C2" stroke-width="2"/>
+  <circle cx="41" cy="24" r="4" fill="#C2C2C2"/>
+  <path d="M16 44L26 30L36 41L42 34L48 44H16Z" fill="#C2C2C2" stroke="#C2C2C2" stroke-width="2" stroke-linejoin="round"/>
+</svg>

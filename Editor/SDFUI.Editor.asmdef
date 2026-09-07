@@ -1,0 +1,7 @@
+{
+  "name": "SDFUI.Editor",
+  "rootNamespace": "SDFUI.Editor",
+  "references": ["SDFUI", "UnityEngine.UI", "UnityEditor.UI"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": true
+}

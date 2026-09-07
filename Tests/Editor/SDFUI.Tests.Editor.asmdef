@@ -1,0 +1,8 @@
+{
+  "name": "SDFUI.Tests.Editor",
+  "rootNamespace": "SDFUI.Tests",
+  "references": ["SDFUI", "SDFUI.Editor", "UnityEngine.UI"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}
