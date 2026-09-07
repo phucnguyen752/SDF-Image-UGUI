@@ -1,7 +1,11 @@
 {
   "name": "com.sdfimage.ugui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "displayName": "SDF Image",
+  "author": {
+    "name": "Phuc Nguyen",
+    "url": "https://github.com/phucnguyen752"
+  },
   "description": "Automatic asynchronous SDF baking attached to source sprites, with uGUI outlines and soft shadows.",
   "unity": "6000.0",
   "dependencies": { "com.unity.ugui": "2.0.0" },

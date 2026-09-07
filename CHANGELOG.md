@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 — 2026-09-07
+
+- Add package author name `Phuc Nguyen` and GitHub profile URL so Unity Package Manager can display the author.
+
 ## 0.3.0 — 2026-09-07
 
 - Rename the distribution to `Assets/SDFImage`, package `com.sdfimage.ugui`, and namespace/assemblies `SDFUI`; update resources, cache, import metadata, demo paths, and documentation.

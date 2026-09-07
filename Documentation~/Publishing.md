@@ -10,9 +10,9 @@ Repository: <https://github.com/phucnguyen752/sdf-image>.
 2. Run `SDFUI.Tests` in isolated Built-in and URP projects, including a local UPM installation with `com.sdfimage.ugui` in `testables`. Verify the demo, source attachment/reimport, and player script compilation. Record actual results and remaining limitations; a script compilation does not establish a complete player build.
 3. Commit the reviewed package and project changes on `main`. Keep `Library`, `Temp`, `Logs`, `obj`, and `Build` outputs out of the release, except deliberately copied evidence inside the package documentation. Start the split from a clean, committed checkout.
 
-## Publish 0.3.0
+## Publish 0.3.1
 
-Run these commands from the repository root in PowerShell after verification. For later releases, replace every `0.3.0` with the new version.
+Run these commands from the repository root in PowerShell after verification. For later releases, replace every `0.3.1` with the new version.
 
 ```powershell
 git switch main
@@ -26,11 +26,11 @@ Confirm the package version and root contents before continuing. When `origin/up
 
 ```powershell
 git branch -f upm $packageCommit
-git tag -a 0.3.0 $packageCommit -m "SDF Image 0.3.0"
-git push origin main upm refs/tags/0.3.0
-git ls-remote origin refs/heads/main refs/heads/upm refs/tags/0.3.0 'refs/tags/0.3.0^{}'
+git tag -a 0.3.1 $packageCommit -m "SDF Image 0.3.1"
+git push origin main upm refs/tags/0.3.1
+git ls-remote origin refs/heads/main refs/heads/upm refs/tags/0.3.1 'refs/tags/0.3.1^{}'
 ```
 
-The remote `upm` hash and peeled tag hash (`0.3.0^{}`) must equal `$packageCommit`. Never move an existing release tag; use a new version for changes after publication.
+The remote `upm` hash and peeled tag hash (`0.3.1^{}`) must equal `$packageCommit`. Never move an existing release tag; use a new version for changes after publication.
 
-Finally, install `https://github.com/phucnguyen752/sdf-image.git#0.3.0` in a clean Unity 6 project, confirm package identity and sample import, and create the GitHub release from the annotated tag using the verified release notes.
+Finally, install `https://github.com/phucnguyen752/sdf-image.git#0.3.1` in a clean Unity 6 project, confirm package identity and sample import, and create the GitHub release from the annotated tag using the verified release notes.
