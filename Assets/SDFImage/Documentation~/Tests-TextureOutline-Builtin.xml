@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="71" result="Passed" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:11:11Z" duration="14.7560428">
+  <test-suite type="TestSuite" id="1000" name="TmpValidation" fullname="TmpValidation" runstate="Runnable" testcasecount="71" result="Passed" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:11:11Z" duration="14.756043" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1090" name="SDFUI.Tests.Editor.dll" fullname="D:/Project/sdf-image/Build/TmpValidation/Library/ScriptAssemblies/SDFUI.Tests.Editor.dll" runstate="Runnable" testcasecount="71" result="Passed" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:11:11Z" duration="14.749691" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="50248" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1091" name="SDFUI" fullname="SDFUI" runstate="Runnable" testcasecount="71" result="Passed" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:11:11Z" duration="14.749105" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1092" name="Tests" fullname="SDFUI.Tests" runstate="Runnable" testcasecount="71" result="Passed" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:11:11Z" duration="14.748786" total="71" passed="71" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="SdfAutoBakeTests" fullname="SDFUI.Tests.SdfAutoBakeTests" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:11:03Z" duration="7.001870" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1005" name="Default512Bake_CanCancelWhileActiveAndKeepsTheEditorUpdating" fullname="SDFUI.Tests.SdfAutoBakeTests.Default512Bake_CanCancelWhileActiveAndKeepsTheEditorUpdating" methodname="Default512Bake_CanCancelWhileActiveAndKeepsTheEditorUpdating" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="453552646" result="Passed" start-time="2026-09-08 11:10:56Z" end-time="2026-09-08 11:10:58Z" duration="1.357212" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[SDF512_TIMING total_ms=233.1 max_update_gap_ms=8.8 editor_updates=1357 cancel_call_ms=0.8
+]]></output>
+            </test-case>
+            <test-case id="1004" name="DisablingBeforeQueueCompletion_CancelsPendingWorkAndPreventsManualEnqueue" fullname="SDFUI.Tests.SdfAutoBakeTests.DisablingBeforeQueueCompletion_CancelsPendingWorkAndPreventsManualEnqueue" methodname="DisablingBeforeQueueCompletion_CancelsPendingWorkAndPreventsManualEnqueue" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="2099883841" result="Passed" start-time="2026-09-08 11:10:58Z" end-time="2026-09-08 11:10:59Z" duration="0.954221" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="EditingSourcePixels_RebakesAutomaticallyWithoutChangingOriginalRgbaOrLoopingImports" fullname="SDFUI.Tests.SdfAutoBakeTests.EditingSourcePixels_RebakesAutomaticallyWithoutChangingOriginalRgbaOrLoopingImports" methodname="EditingSourcePixels_RebakesAutomaticallyWithoutChangingOriginalRgbaOrLoopingImports" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="1694405850" result="Passed" start-time="2026-09-08 11:10:59Z" end-time="2026-09-08 11:11:00Z" duration="1.139026" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="EnablingAndRebaking_EmbedsAllResultsInSourceWithStableObjectIds" fullname="SDFUI.Tests.SdfAutoBakeTests.EnablingAndRebaking_EmbedsAllResultsInSourceWithStableObjectIds" methodname="EnablingAndRebaking_EmbedsAllResultsInSourceWithStableObjectIds" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="58354460" result="Passed" start-time="2026-09-08 11:11:00Z" end-time="2026-09-08 11:11:00Z" duration="0.370658" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="MaximumSize_BoundsGeneratedTexturesWithoutChangingNativeDisplaySize" fullname="SDFUI.Tests.SdfAutoBakeTests.MaximumSize_BoundsGeneratedTexturesWithoutChangingNativeDisplaySize" methodname="MaximumSize_BoundsGeneratedTexturesWithoutChangingNativeDisplaySize" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="602570292" result="Passed" start-time="2026-09-08 11:11:00Z" end-time="2026-09-08 11:11:00Z" duration="0.237137" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="MultipleSprites_KeepSeparateArtworkMetadataAndStableAttachmentsAfterReimport" fullname="SDFUI.Tests.SdfAutoBakeTests.MultipleSprites_KeepSeparateArtworkMetadataAndStableAttachmentsAfterReimport" methodname="MultipleSprites_KeepSeparateArtworkMetadataAndStableAttachmentsAfterReimport" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="293028140" result="Passed" start-time="2026-09-08 11:11:00Z" end-time="2026-09-08 11:11:01Z" duration="1.062473" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="OrdinarySpriteImport_IsDisabledByDefaultAndDoesNotScheduleSdfWork" fullname="SDFUI.Tests.SdfAutoBakeTests.OrdinarySpriteImport_IsDisabledByDefaultAndDoesNotScheduleSdfWork" methodname="OrdinarySpriteImport_IsDisabledByDefaultAndDoesNotScheduleSdfWork" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="459751007" result="Passed" start-time="2026-09-08 11:11:01Z" end-time="2026-09-08 11:11:02Z" duration="0.900029" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="RapidSettingsChanges_PublishOnlyTheNewestRequestedResult" fullname="SDFUI.Tests.SdfAutoBakeTests.RapidSettingsChanges_PublishOnlyTheNewestRequestedResult" methodname="RapidSettingsChanges_PublishOnlyTheNewestRequestedResult" classname="SDFUI.Tests.SdfAutoBakeTests" runstate="Runnable" seed="1963873596" result="Passed" start-time="2026-09-08 11:11:02Z" end-time="2026-09-08 11:11:03Z" duration="0.963914" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1010" name="SdfDistanceTransformTests" fullname="SDFUI.Tests.SdfDistanceTransformTests" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.015337" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1015" name="AlphaThreshold_DefinesBoundaryBetweenAdjacentPixels" fullname="SDFUI.Tests.SdfDistanceTransformTests.AlphaThreshold_DefinesBoundaryBetweenAdjacentPixels" methodname="AlphaThreshold_DefinesBoundaryBetweenAdjacentPixels" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" seed="76544875" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.001790" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="InvalidInput_IsRejectedBeforeAllocatingDistanceFields" fullname="SDFUI.Tests.SdfDistanceTransformTests.InvalidInput_IsRejectedBeforeAllocatingDistanceFields" methodname="InvalidInput_IsRejectedBeforeAllocatingDistanceFields" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" seed="27644640" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.003042" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1014" name="MaskWithoutOppositePixels_SaturatesAtRange" fullname="SDFUI.Tests.SdfDistanceTransformTests.MaskWithoutOppositePixels_SaturatesAtRange" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.001555" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1012" name="MaskWithoutOppositePixels_SaturatesAtRange(0,-7.0f)" fullname="SDFUI.Tests.SdfDistanceTransformTests.MaskWithoutOppositePixels_SaturatesAtRange(0,-7.0f)" methodname="MaskWithoutOppositePixels_SaturatesAtRange" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" seed="1323588345" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.000427" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="MaskWithoutOppositePixels_SaturatesAtRange(255,7.0f)" fullname="SDFUI.Tests.SdfDistanceTransformTests.MaskWithoutOppositePixels_SaturatesAtRange(255,7.0f)" methodname="MaskWithoutOppositePixels_SaturatesAtRange" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" seed="235650782" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.000189" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1011" name="RandomBinaryMasks_MatchIndependentNearestBoundarySearch" fullname="SDFUI.Tests.SdfDistanceTransformTests.RandomBinaryMasks_MatchIndependentNearestBoundarySearch" methodname="RandomBinaryMasks_MatchIndependentNearestBoundarySearch" classname="SDFUI.Tests.SdfDistanceTransformTests" runstate="Runnable" seed="1459968516" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:03Z" duration="0.006650" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1017" name="SdfEditorPipelineTests" fullname="SDFUI.Tests.SdfEditorPipelineTests" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:06Z" duration="2.889932" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1029" name="BuildCheck_EditorOnlyResourcesPrefab_DoesNotBlockThePlayerBuild" fullname="SDFUI.Tests.SdfEditorPipelineTests.BuildCheck_EditorOnlyResourcesPrefab_DoesNotBlockThePlayerBuild" methodname="BuildCheck_EditorOnlyResourcesPrefab_DoesNotBlockThePlayerBuild" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="884002449" result="Passed" start-time="2026-09-08 11:11:03Z" end-time="2026-09-08 11:11:04Z" duration="0.540768" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1027" name="BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes" fullname="SDFUI.Tests.SdfEditorPipelineTests.BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:04Z" end-time="2026-09-08 11:11:04Z" duration="0.476958" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1025" name="BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes(False)" fullname="SDFUI.Tests.SdfEditorPipelineTests.BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes(False)" methodname="BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="102545194" result="Passed" start-time="2026-09-08 11:11:04Z" end-time="2026-09-08 11:11:04Z" duration="0.281249" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1026" name="BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes(True)" fullname="SDFUI.Tests.SdfEditorPipelineTests.BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes(True)" methodname="BuildCheck_ValidatesUnbakedSpriteDependenciesOutsideBuildScenes" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="1954898954" result="Passed" start-time="2026-09-08 11:11:04Z" end-time="2026-09-08 11:11:04Z" duration="0.193958" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1028" name="CacheHit_RestoresCurrentLatestPointerWithoutReimportingOrRewritingItAgain" fullname="SDFUI.Tests.SdfEditorPipelineTests.CacheHit_RestoresCurrentLatestPointerWithoutReimportingOrRewritingItAgain" methodname="CacheHit_RestoresCurrentLatestPointerWithoutReimportingOrRewritingItAgain" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="1363600287" result="Passed" start-time="2026-09-08 11:11:04Z" end-time="2026-09-08 11:11:04Z" duration="0.183680" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="DisabledWarmCache_RestoresMissingDependencyAndStableArtifactsWithoutBaking" fullname="SDFUI.Tests.SdfEditorPipelineTests.DisabledWarmCache_RestoresMissingDependencyAndStableArtifactsWithoutBaking" methodname="DisabledWarmCache_RestoresMissingDependencyAndStableArtifactsWithoutBaking" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="652030430" result="Passed" start-time="2026-09-08 11:11:04Z" end-time="2026-09-08 11:11:05Z" duration="0.961954" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="Settings_DamagedTerminatedBlock_IsDisabledAndCanBeReplacedWithoutLosingSuffix" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_DamagedTerminatedBlock_IsDisabledAndCanBeReplacedWithoutLosingSuffix" methodname="Settings_DamagedTerminatedBlock_IsDisabledAndCanBeReplacedWithoutLosingSuffix" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="1595285622" result="Passed" start-time="2026-09-08 11:11:05Z" end-time="2026-09-08 11:11:06Z" duration="0.105575" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1023" name="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.340207" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1020" name="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement(&quot;not JSON&quot;)" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement(&quot;not JSON&quot;)" methodname="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="1841387890" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.105962" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1021" name="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement(&quot;{\&quot;enabled\&quot;:true&quot;)" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement(&quot;{\&quot;enabled\&quot;:true&quot;)" methodname="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="134480864" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.104871" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1022" name="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement(&quot;{\&quot;enabled\&quot;:truX}&quot;)" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement(&quot;{\&quot;enabled\&quot;:truX}&quot;)" methodname="Settings_DamagedUnterminatedBlock_IsPreservedWhenWritingAReplacement" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="1955713492" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.124555" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1018" name="Settings_LegacyJsonWithEscapedBraces_PreservesForeignPrefixAndSuffix" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_LegacyJsonWithEscapedBraces_PreservesForeignPrefixAndSuffix" methodname="Settings_LegacyJsonWithEscapedBraces_PreservesForeignPrefixAndSuffix" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="1445682671" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.157687" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="Settings_OverlongBlock_IsDisabledWithoutDiscardingUnownedText" fullname="SDFUI.Tests.SdfEditorPipelineTests.Settings_OverlongBlock_IsDisabledWithoutDiscardingUnownedText" methodname="Settings_OverlongBlock_IsDisabledWithoutDiscardingUnownedText" classname="SDFUI.Tests.SdfEditorPipelineTests" runstate="Runnable" seed="4238893" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.119687" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1031" name="SdfImageTests" fullname="SDFUI.Tests.SdfImageTests" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.096602" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1034" name="AnimationCallbacks_ReuseAttachmentsUntilTheSourceChanges" fullname="SDFUI.Tests.SdfImageTests.AnimationCallbacks_ReuseAttachmentsUntilTheSourceChanges" methodname="AnimationCallbacks_ReuseAttachmentsUntilTheSourceChanges" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1271836427" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.016367" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="CompressedSlicedBorders_KeepOutlineWhenTheCenterCollapses" fullname="SDFUI.Tests.SdfImageTests.CompressedSlicedBorders_KeepOutlineWhenTheCenterCollapses" methodname="CompressedSlicedBorders_KeepOutlineWhenTheCenterCollapses" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1960435570" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.002985" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1040" name="EffectToggles_DisableTheirRenderingAndRetainAllStyleValues" fullname="SDFUI.Tests.SdfImageTests.EffectToggles_DisableTheirRenderingAndRetainAllStyleValues" methodname="EffectToggles_DisableTheirRenderingAndRetainAllStyleValues" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="826324840" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.005746" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="ImagesKeepIndependentMaterials_AndReleaseOnlyTheirOwnOnDisable" fullname="SDFUI.Tests.SdfImageTests.ImagesKeepIndependentMaterials_AndReleaseOnlyTheirOwnOnDisable" methodname="ImagesKeepIndependentMaterials_AndReleaseOnlyTheirOwnOnDisable" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1555687482" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.002663" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1049" name="LegacyImageSettings_MigrateWhenSourceIsSeededBeforeEnable" fullname="SDFUI.Tests.SdfImageTests.LegacyImageSettings_MigrateWhenSourceIsSeededBeforeEnable" methodname="LegacyImageSettings_MigrateWhenSourceIsSeededBeforeEnable" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1536571444" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.003529" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1043" name="OutlineExpandsRenderedMesh_WithoutExpandingClickableBounds" fullname="SDFUI.Tests.SdfImageTests.OutlineExpandsRenderedMesh_WithoutExpandingClickableBounds" methodname="OutlineExpandsRenderedMesh_WithoutExpandingClickableBounds" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="312384145" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.010394" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="SlicedLayout_UsesSpriteBordersAndCanvasPixelsPerUnit" fullname="SDFUI.Tests.SdfImageTests.SlicedLayout_UsesSpriteBordersAndCanvasPixelsPerUnit" methodname="SlicedLayout_UsesSpriteBordersAndCanvasPixelsPerUnit" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1329989740" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.002293" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1038" name="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled" fullname="SDFUI.Tests.SdfImageTests.SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.010220" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1035" name="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled(Simple,100.0f,1.0f)" fullname="SDFUI.Tests.SdfImageTests.SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled(Simple,100.0f,1.0f)" methodname="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1779824879" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.002563" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1036" name="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled(Sliced,100.0f,1.0f)" fullname="SDFUI.Tests.SdfImageTests.SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled(Sliced,100.0f,1.0f)" methodname="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1506139742" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.001742" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1037" name="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled(Sliced,200.0f,2.0f)" fullname="SDFUI.Tests.SdfImageTests.SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled(Sliced,200.0f,2.0f)" methodname="SourceImageLayout_MatchesStandardImageBeforeBakeAfterBakeAndWithEffectsDisabled" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="669666136" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.001211" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1039" name="SourceWithoutSdf_UsesTheNormalImageMaterialAndFilledGeometry" fullname="SDFUI.Tests.SdfImageTests.SourceWithoutSdf_UsesTheNormalImageMaterialAndFilledGeometry" methodname="SourceWithoutSdf_UsesTheNormalImageMaterialAndFilledGeometry" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="175854768" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.009937" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="SpriteAndOverrideSwaps_OnOneSourceTexture_NeverKeepStaleSdfData" fullname="SDFUI.Tests.SdfImageTests.SpriteAndOverrideSwaps_OnOneSourceTexture_NeverKeepStaleSdfData" methodname="SpriteAndOverrideSwaps_OnOneSourceTexture_NeverKeepStaleSdfData" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1265970513" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.003234" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1032" name="StandardImageSourceProperty_ResolvesAttachedSdfWithOneComponent" fullname="SDFUI.Tests.SdfImageTests.StandardImageSourceProperty_ResolvesAttachedSdfWithOneComponent" methodname="StandardImageSourceProperty_ResolvesAttachedSdfWithOneComponent" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="2027893365" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.003728" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="StencilMaterial_ReceivesStyleChangesAfterItsFirstCreation" fullname="SDFUI.Tests.SdfImageTests.StencilMaterial_ReceivesStyleChangesAfterItsFirstCreation" methodname="StencilMaterial_ReceivesStyleChangesAfterItsFirstCreation" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="1481420954" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.005560" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1048" name="ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders" fullname="SDFUI.Tests.SdfImageTests.ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.010551" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1046" name="ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders(100.0f)" fullname="SDFUI.Tests.SdfImageTests.ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders(100.0f)" methodname="ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="800505844" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.003666" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1047" name="ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders(200.0f)" fullname="SDFUI.Tests.SdfImageTests.ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders(200.0f)" methodname="ThinDownsampledSprite_PreservesOriginalNativeSizeAspectAndSliceBorders" classname="SDFUI.Tests.SdfImageTests" runstate="Runnable" seed="634282201" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:06Z" duration="0.002394" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1050" name="SdfInspectorTests" fullname="SDFUI.Tests.SdfInspectorTests" classname="SDFUI.Tests.SdfInspectorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:08Z" duration="1.350028" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1051" name="CustomInspector_SourceAssignmentUndoAndGenerate_UseTheSameImageComponent" fullname="SDFUI.Tests.SdfInspectorTests.CustomInspector_SourceAssignmentUndoAndGenerate_UseTheSameImageComponent" methodname="CustomInspector_SourceAssignmentUndoAndGenerate_UseTheSameImageComponent" classname="SDFUI.Tests.SdfInspectorTests" runstate="Runnable" seed="99347154" result="Passed" start-time="2026-09-08 11:11:06Z" end-time="2026-09-08 11:11:07Z" duration="0.437543" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1052" name="LegacyBinding_AfterSourceIsCleared_DoesNotReseedDuringRefreshEnableOrCleanupUndo" fullname="SDFUI.Tests.SdfInspectorTests.LegacyBinding_AfterSourceIsCleared_DoesNotReseedDuringRefreshEnableOrCleanupUndo" methodname="LegacyBinding_AfterSourceIsCleared_DoesNotReseedDuringRefreshEnableOrCleanupUndo" classname="SDFUI.Tests.SdfInspectorTests" runstate="Runnable" seed="454872547" result="Passed" start-time="2026-09-08 11:11:07Z" end-time="2026-09-08 11:11:08Z" duration="0.907369" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1053" name="SdfPackageTests" fullname="SDFUI.Tests.SdfPackageTests" classname="SDFUI.Tests.SdfPackageTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.010653" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1054" name="InstalledPackage_ResolvesItsPublicAssembliesShaderAndComponentIcon" fullname="SDFUI.Tests.SdfPackageTests.InstalledPackage_ResolvesItsPublicAssembliesShaderAndComponentIcon" methodname="InstalledPackage_ResolvesItsPublicAssembliesShaderAndComponentIcon" classname="SDFUI.Tests.SdfPackageTests" runstate="Runnable" seed="2143986380" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.006991" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1055" name="ShippedDemoPrefab_ResolvesAllScriptsToTheInstalledLibraryAfterFolderAndAssemblyRename" fullname="SDFUI.Tests.SdfPackageTests.ShippedDemoPrefab_ResolvesAllScriptsToTheInstalledLibraryAfterFolderAndAssemblyRename" methodname="ShippedDemoPrefab_ResolvesAllScriptsToTheInstalledLibraryAfterFolderAndAssemblyRename" classname="SDFUI.Tests.SdfPackageTests" runstate="Runnable" seed="1832350415" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.002360" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1056" name="SdfRenderingTests" fullname="SDFUI.Tests.SdfRenderingTests" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:10Z" duration="2.690831" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1070" name="CanvasGroupAndGraphicAlpha_FadeTheCompletedCompositeOnce" fullname="SDFUI.Tests.SdfRenderingTests.CanvasGroupAndGraphicAlpha_FadeTheCompletedCompositeOnce" methodname="CanvasGroupAndGraphicAlpha_FadeTheCompletedCompositeOnce" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="1187071498" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.222555" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1065" name="InactiveWhiteOutline_PreservesTheSourcePartialAlpha" fullname="SDFUI.Tests.SdfRenderingTests.InactiveWhiteOutline_PreservesTheSourcePartialAlpha" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.305181" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1063" name="InactiveWhiteOutline_PreservesTheSourcePartialAlpha(0.0f,1.0f)" fullname="SDFUI.Tests.SdfRenderingTests.InactiveWhiteOutline_PreservesTheSourcePartialAlpha(0.0f,1.0f)" methodname="InactiveWhiteOutline_PreservesTheSourcePartialAlpha" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="239859045" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.149419" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1064" name="InactiveWhiteOutline_PreservesTheSourcePartialAlpha(6.0f,0.0f)" fullname="SDFUI.Tests.SdfRenderingTests.InactiveWhiteOutline_PreservesTheSourcePartialAlpha(6.0f,0.0f)" methodname="InactiveWhiteOutline_PreservesTheSourcePartialAlpha" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="104972702" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.154679" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1057" name="OuterAndInnerOutlines_AppearOnTheirRespectiveSidesOfTheSourceEdge" fullname="SDFUI.Tests.SdfRenderingTests.OuterAndInnerOutlines_AppearOnTheirRespectiveSidesOfTheSourceEdge" methodname="OuterAndInnerOutlines_AppearOnTheirRespectiveSidesOfTheSourceEdge" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="978570233" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.150308" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1075" name="SdfImageAsMask_ClipsToItsSilhouetteAndUpdatesItsStencilMaterials" fullname="SDFUI.Tests.SdfRenderingTests.SdfImageAsMask_ClipsToItsSilhouetteAndUpdatesItsStencilMaterials" methodname="SdfImageAsMask_ClipsToItsSilhouetteAndUpdatesItsStencilMaterials" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="2106734240" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:08Z" duration="0.202476" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1069" name="ShadowOffset_MovesTheVisibleBlueSilhouetteToTheRight" fullname="SDFUI.Tests.SdfRenderingTests.ShadowOffset_MovesTheVisibleBlueSilhouetteToTheRight" methodname="ShadowOffset_MovesTheVisibleBlueSilhouetteToTheRight" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="323540694" result="Passed" start-time="2026-09-08 11:11:08Z" end-time="2026-09-08 11:11:09Z" duration="0.147672" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1076" name="SharedCanvas_WithBackgroundAndTransformedImages_PreservesEachImagesLocalSampling" fullname="SDFUI.Tests.SdfRenderingTests.SharedCanvas_WithBackgroundAndTransformedImages_PreservesEachImagesLocalSampling" methodname="SharedCanvas_WithBackgroundAndTransformedImages_PreservesEachImagesLocalSampling" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="388703834" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.148483" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1074" name="StencilMasks_ClipTranslatedAndNestedBounds" fullname="SDFUI.Tests.SdfRenderingTests.StencilMasks_ClipTranslatedAndNestedBounds" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.303628" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1072" name="StencilMasks_ClipTranslatedAndNestedBounds(False)" fullname="SDFUI.Tests.SdfRenderingTests.StencilMasks_ClipTranslatedAndNestedBounds(False)" methodname="StencilMasks_ClipTranslatedAndNestedBounds" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="814903408" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.155314" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1073" name="StencilMasks_ClipTranslatedAndNestedBounds(True)" fullname="SDFUI.Tests.SdfRenderingTests.StencilMasks_ClipTranslatedAndNestedBounds(True)" methodname="StencilMasks_ClipTranslatedAndNestedBounds" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="1420938232" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.147348" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1068" name="StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint" fullname="SDFUI.Tests.SdfRenderingTests.StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.280596" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1066" name="StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint(Simple)" fullname="SDFUI.Tests.SdfRenderingTests.StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint(Simple)" methodname="StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="1771024354" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.139045" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1067" name="StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint(Sliced)" fullname="SDFUI.Tests.SdfRenderingTests.StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint(Sliced)" methodname="StretchedWhiteOutline_PreservesTransparencyBeyondTheSourceEdgeFootprint" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="987742428" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:09Z" duration="0.140644" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1058" name="TextureColoredOutline_FollowsBakedEdgeColorsAndScalesOnlyTheOutline" fullname="SDFUI.Tests.SdfRenderingTests.TextureColoredOutline_FollowsBakedEdgeColorsAndScalesOnlyTheOutline" methodname="TextureColoredOutline_FollowsBakedEdgeColorsAndScalesOnlyTheOutline" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="74473862" result="Passed" start-time="2026-09-08 11:11:09Z" end-time="2026-09-08 11:11:10Z" duration="0.306404" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1059" name="TextureColoredOutline_PreservesOpacityTintAndClippingOnSlicedImages" fullname="SDFUI.Tests.SdfRenderingTests.TextureColoredOutline_PreservesOpacityTintAndClippingOnSlicedImages" methodname="TextureColoredOutline_PreservesOpacityTintAndClippingOnSlicedImages" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="1102758870" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:10Z" duration="0.194112" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1071" name="TranslatedRectMask2D_ClipsFillAndEffectsInTheCorrectCoordinates" fullname="SDFUI.Tests.SdfRenderingTests.TranslatedRectMask2D_ClipsFillAndEffectsInTheCorrectCoordinates" methodname="TranslatedRectMask2D_ClipsFillAndEffectsInTheCorrectCoordinates" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="589525071" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:10Z" duration="0.128634" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1062" name="WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin" fullname="SDFUI.Tests.SdfRenderingTests.WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:10Z" duration="0.297336" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1060" name="WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin(Outer)" fullname="SDFUI.Tests.SdfRenderingTests.WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin(Outer)" methodname="WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="232243861" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:10Z" duration="0.147243" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1061" name="WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin(Center)" fullname="SDFUI.Tests.SdfRenderingTests.WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin(Center)" methodname="WhiteOutline_WithSourceAntialiasingDifferentFromSdfCoverage_HasNoDarkJoin" classname="SDFUI.Tests.SdfRenderingTests" runstate="Runnable" seed="1267835579" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:10Z" duration="0.148990" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1077" name="SdfTextTests" fullname="SDFUI.Tests.SdfTextTests" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:11Z" duration="0.690247" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1086" name="AncestorMask_ClipsBothTextAndExpandedEffects" fullname="SDFUI.Tests.SdfTextTests.AncestorMask_ClipsBothTextAndExpandedEffects" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:11Z" duration="0.355169" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1084" name="AncestorMask_ClipsBothTextAndExpandedEffects(False)" fullname="SDFUI.Tests.SdfTextTests.AncestorMask_ClipsBothTextAndExpandedEffects(False)" methodname="AncestorMask_ClipsBothTextAndExpandedEffects" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1406492893" result="Passed" start-time="2026-09-08 11:11:10Z" end-time="2026-09-08 11:11:11Z" duration="0.218738" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1085" name="AncestorMask_ClipsBothTextAndExpandedEffects(True)" fullname="SDFUI.Tests.SdfTextTests.AncestorMask_ClipsBothTextAndExpandedEffects(True)" methodname="AncestorMask_ClipsBothTextAndExpandedEffects" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="942275628" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.135493" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1087" name="CanvasGroupOnSource_FadesSiblingOutlineAndShadow" fullname="SDFUI.Tests.SdfTextTests.CanvasGroupOnSource_FadesSiblingOutlineAndShadow" methodname="CanvasGroupOnSource_FadesSiblingOutlineAndShadow" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1426191576" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.014613" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1081" name="ChangingTextEmptyingAndDisabling_ClearsEveryEffectLayer" fullname="SDFUI.Tests.SdfTextTests.ChangingTextEmptyingAndDisabling_ClearsEveryEffectLayer" methodname="ChangingTextEmptyingAndDisabling_ClearsEveryEffectLayer" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1812717685" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.020075" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1078" name="CloselySpacedGlyphs_ThickOutlineNeverPaintsOverAnyGlyphFace" fullname="SDFUI.Tests.SdfTextTests.CloselySpacedGlyphs_ThickOutlineNeverPaintsOverAnyGlyphFace" methodname="CloselySpacedGlyphs_ThickOutlineNeverPaintsOverAnyGlyphFace" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1876433919" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.020834" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1082" name="CustomUpdateGeometry_EffectsKeepFollowingTheUploadedFaceMeshAcrossRenderUpdates" fullname="SDFUI.Tests.SdfTextTests.CustomUpdateGeometry_EffectsKeepFollowingTheUploadedFaceMeshAcrossRenderUpdates" methodname="CustomUpdateGeometry_EffectsKeepFollowingTheUploadedFaceMeshAcrossRenderUpdates" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="165235469" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.167495" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1089" name="Effects_PreserveSharedFontMaterialAndRenderImmediatelyBeforeSource" fullname="SDFUI.Tests.SdfTextTests.Effects_PreserveSharedFontMaterialAndRenderImmediatelyBeforeSource" methodname="Effects_PreserveSharedFontMaterialAndRenderImmediatelyBeforeSource" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1785268374" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.010766" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1080" name="FallbackFontSubmeshes_AllOutlinesRemainBehindAllGlyphFaces" fullname="SDFUI.Tests.SdfTextTests.FallbackFontSubmeshes_AllOutlinesRemainBehindAllGlyphFaces" methodname="FallbackFontSubmeshes_AllOutlinesRemainBehindAllGlyphFaces" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="649722137" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.030711" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1088" name="NegativeShadowSpread_ContractsTheShadowSilhouette" fullname="SDFUI.Tests.SdfTextTests.NegativeShadowSpread_ContractsTheShadowSilhouette" methodname="NegativeShadowSpread_ContractsTheShadowSilhouette" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1271215026" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.011551" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1083" name="TextEnteringRectMaskDuringMeshRebuild_UncullsEffectsWithoutRegisteringAnotherRebuild" fullname="SDFUI.Tests.SdfTextTests.TextEnteringRectMaskDuringMeshRebuild_UncullsEffectsWithoutRegisteringAnotherRebuild" methodname="TextEnteringRectMaskDuringMeshRebuild_UncullsEffectsWithoutRegisteringAnotherRebuild" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="1923904796" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.008104" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1079" name="ThickOutline_FillsTheExteriorStrokeWithoutHolesAtConcaveCorners" fullname="SDFUI.Tests.SdfTextTests.ThickOutline_FillsTheExteriorStrokeWithoutHolesAtConcaveCorners" methodname="ThickOutline_FillsTheExteriorStrokeWithoutHolesAtConcaveCorners" classname="SDFUI.Tests.SdfTextTests" runstate="Runnable" seed="50757059" result="Passed" start-time="2026-09-08 11:11:11Z" end-time="2026-09-08 11:11:11Z" duration="0.021957" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/phucn/AppData/LocalLow/DefaultCompany/TmpValidation\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -206,6 +206,14 @@ namespace SDFUI.Tests
             component.OutlineWidth = 6;
             component.OutlineSoftness = 1;
             component.OutlineColor = outlineColor;
+            Assert.That(component.OutlineUseTextureColor, Is.False);
+            Assert.That(component.OutlineTextureColorIntensity, Is.EqualTo(1));
+            component.OutlineUseTextureColor = true;
+            component.OutlineTextureColorIntensity = float.NaN;
+            Assert.That(component.OutlineTextureColorIntensity, Is.Zero);
+            component.OutlineTextureColorIntensity = -1;
+            Assert.That(component.OutlineTextureColorIntensity, Is.Zero);
+            component.OutlineTextureColorIntensity = 1.5f;
             component.ShadowOffset = new Vector2(4, -3);
             component.ShadowBlur = 4;
             component.ShadowSpread = 2;
@@ -230,6 +238,8 @@ namespace SDFUI.Tests
             Assert.That(component.OutlineWidth, Is.EqualTo(6));
             Assert.That(component.OutlineSoftness, Is.EqualTo(1));
             Assert.That(component.OutlineColor, Is.EqualTo(outlineColor));
+            Assert.That(component.OutlineUseTextureColor, Is.True);
+            Assert.That(component.OutlineTextureColorIntensity, Is.EqualTo(1.5f));
             Assert.That(component.ShadowOffset, Is.EqualTo(new Vector2(4, -3)));
             Assert.That(component.ShadowBlur, Is.EqualTo(4));
             Assert.That(component.ShadowSpread, Is.EqualTo(2));
@@ -239,6 +249,7 @@ namespace SDFUI.Tests
             component.ShadowEnabled = true;
             Material restored = component.materialForRendering;
             Assert.That(restored.GetVector("_Outline"), Is.EqualTo(new Vector4(6, 1, 0, 0)));
+            Assert.That(restored.GetVector("_OutlineTextureColor"), Is.EqualTo(new Vector4(1, 1.5f, 0, 0)));
             // Allow material color round-trip rounding; the stored component style above remains exact.
             Color restoredColor = restored.GetColor("_ShadowColor");
             Assert.That(restoredColor.r, Is.EqualTo(shadowColor.r).Within(0.000001f));
@@ -282,10 +293,13 @@ namespace SDFUI.Tests
 
             child.OutlineWidth = 11;
             child.OutlineColor = Color.magenta;
+            child.OutlineUseTextureColor = true;
+            child.OutlineTextureColorIntensity = 0.5f;
             Material changed = child.materialForRendering;
 
             Assert.That(changed.GetVector("_Outline").x, Is.EqualTo(11));
             Assert.That(changed.GetColor("_OutlineColor"), Is.EqualTo(Color.magenta));
+            Assert.That(changed.GetVector("_OutlineTextureColor"), Is.EqualTo(new Vector4(1, 0.5f, 0, 0)));
         }
 
         [Test]

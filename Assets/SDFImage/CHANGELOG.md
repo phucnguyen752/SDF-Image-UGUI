@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0 — 2026-09-08
+
+- Add optional texture-colored SdfImage outlines with adjustable intensity and separate opacity, reusing existing baked color data without rebaking. Fixed-color outlines remain the default.
+- Replace the README sprite preview with a rendered three-card Use Texture Color showcase matching the SDF Text demo layout.
+
 ## 0.4.0 — 2026-09-08
 
 - Add `SdfText`, a `TextMeshProUGUI` component with outline and soft shadow drawn behind all character faces, including fallback font and material submeshes.
