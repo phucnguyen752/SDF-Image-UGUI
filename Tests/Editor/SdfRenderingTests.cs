@@ -36,7 +36,7 @@ namespace SDFUI.Tests
             folder = "Assets/SDFImageRenderTest_" + Guid.NewGuid().ToString("N");
             AssetDatabase.CreateFolder("Assets", Path.GetFileName(folder));
             sprite = null;
-            sourcePath = CreateGreenSquareSource();
+            sourcePath = CreateSquareSource();
             SdfTextureSettings settings = SdfTextureSettings.Get(sourcePath);
             settings.enabled = true;
             settings.maxSize = 512;
@@ -123,6 +123,85 @@ namespace SDFUI.Tests
             AssertRed(Average(inner, 11, -6, 3, 12), "Inner outline paints inside the source edge.");
             Assert.That(Average(inner, 18, -6, 3, 12).a, Is.LessThan(0.05f),
                 "Inner outline must not leave a colored exterior ring.");
+        }
+
+        [UnityTest]
+        public IEnumerator TextureColoredOutline_FollowsBakedEdgeColorsAndScalesOnlyTheOutline()
+        {
+            string previousFingerprint = sprite.BakeFingerprint;
+            sourcePath = CreateSquareSource(splitColors: true);
+            double deadline = EditorApplication.timeSinceStartup + 30;
+            while (EditorApplication.timeSinceStartup < deadline)
+            {
+                sprite = SdfSprite.FromSprite(AssetDatabase.LoadAssetAtPath<Sprite>(sourcePath));
+                if (sprite && sprite.BakeFingerprint != previousFingerprint) break;
+                yield return null;
+            }
+            Assert.That(sprite, Is.Not.Null);
+            Assert.That(sprite.BakeFingerprint, Is.Not.EqualTo(previousFingerprint), "The multicolor source must finish baking.");
+            SdfImage image = CreateImage(canvas.transform);
+            Color[] sourceOnly = Render();
+            Color leftColor = Average(sourceOnly, -10, -4, 4, 8);
+            Color rightColor = Average(sourceOnly, 6, -4, 4, 8);
+            Assert.That(leftColor.r, Is.GreaterThan(leftColor.b * 2));
+            Assert.That(rightColor.b, Is.GreaterThan(rightColor.r * 2));
+
+            image.OutlineWidth = 6;
+            image.OutlineColor = Color.black;
+            Color[] solid = Render();
+            image.OutlineUseTextureColor = true;
+            foreach (SdfOutlinePosition position in new[] { SdfOutlinePosition.Outer, SdfOutlinePosition.Inner, SdfOutlinePosition.Center })
+            {
+                image.OutlinePosition = position;
+                int sampleX = position == SdfOutlinePosition.Outer ? 19 : position == SdfOutlinePosition.Inner ? 12 : 17;
+                foreach (float intensity in new[] { 0f, 0.5f, 1f, 2f })
+                {
+                    image.OutlineTextureColorIntensity = intensity;
+                    Color[] rendered = Render();
+                    AssertColor(Average(rendered, -sampleX - 1, -4, 1, 8),
+                        new Color(leftColor.r * intensity, leftColor.g * intensity, leftColor.b * intensity, 1),
+                        position + " left outline must extend the left source color, even where texture alpha is zero.");
+                    AssertColor(Average(rendered, sampleX, -4, 1, 8),
+                        new Color(rightColor.r * intensity, rightColor.g * intensity, rightColor.b * intensity, 1),
+                        position + " right outline must extend the right source color.");
+                    AssertColor(Average(rendered, -6, -4, 2, 8), Average(sourceOnly, -6, -4, 2, 8), "Intensity must not change the face.");
+                    if (position == SdfOutlinePosition.Outer && intensity == 1)
+                        SaveCapture("outline-texture-color.png", rendered);
+                }
+            }
+
+            image.OutlinePosition = SdfOutlinePosition.Outer;
+            image.OutlineUseTextureColor = false;
+            Color[] restored = Render();
+            Assert.That(restored, Is.EqualTo(solid), "Turning texture color off must restore the solid-color rendering.");
+            SaveCapture("outline-solid-color.png", restored);
+        }
+
+        [Test]
+        public void TextureColoredOutline_PreservesOpacityTintAndClippingOnSlicedImages()
+        {
+            sprite.Initialize(sprite.SourceSprite, sprite.ColorTexture, sprite.DistanceTexture, sprite.SourceSize,
+                new Vector4(4, 4, 4, 4), sprite.Pivot, sprite.PixelsPerUnit, sprite.Padding, sprite.DistanceRange);
+            RectTransform clip = CreateMask("Texture Outline Clip", canvas.transform, new Vector2(100, 16), Vector2.zero, false);
+            clip.gameObject.AddComponent<CanvasGroup>().alpha = 0.4f;
+            SdfImage image = CreateImage(clip);
+            image.Type = SdfImageType.Sliced;
+            image.color = new Color(0.2f, 0.4f, 0.6f, 0.5f);
+            Color faceBefore = Average(Render(), -4, -4, 8, 8);
+            image.OutlineWidth = 6;
+            image.OutlineColor = new Color(1, 0, 1, 0.5f);
+            image.OutlineUseTextureColor = true;
+            image.OutlineTextureColorIntensity = 0.5f;
+            Color[] dimmed = Render();
+            AssertColor(Average(dimmed, 21, -4, 2, 8), new Color(0, 0.05f, 0, 0.1f),
+                "Texture RGB ignores Image/Outline RGB tint, while outline opacity and CanvasGroup alpha apply once.");
+            AssertColor(Average(dimmed, -4, -4, 8, 8), faceBefore, "The tinted face must stay unchanged.");
+            Assert.That(Average(dimmed, 21, 11, 2, 3).a, Is.LessThan(0.01f), "RectMask2D must clip the colored outline.");
+
+            image.OutlineTextureColorIntensity = 2;
+            Color[] brightened = Render();
+            AssertColor(Average(brightened, 21, -4, 2, 8), new Color(0, 0.2f, 0, 0.1f),
+                "Runtime intensity changes must increase only RGB, including on the existing clipped material.");
         }
 
         [TestCase(SdfOutlinePosition.Outer)]
@@ -457,17 +536,21 @@ namespace SDFUI.Tests
             }
         }
 
-        private string CreateGreenSquareSource()
+        private string CreateSquareSource(bool splitColors = false)
         {
-            string path = folder + "/GreenSquare.png";
+            string path = folder + "/Square.png";
             var source = new Texture2D(32, 32, TextureFormat.RGBA32, false);
             try
             {
                 var pixels = new Color32[32 * 32];
                 for (int y = 0; y < 32; y++)
                 for (int x = 0; x < 32; x++)
-                    pixels[y * 32 + x] = new Color32(0, 255, 0,
-                        x >= 8 && x < 24 && y >= 8 && y < 24 ? (byte)255 : (byte)0);
+                {
+                    bool inside = x >= 8 && x < 24 && y >= 8 && y < 24;
+                    pixels[y * 32 + x] = !inside ? new Color32(0, 0, 0, 0)
+                        : !splitColors ? new Color32(0, 255, 0, 255)
+                        : x < 16 ? new Color32(120, 48, 24, 255) : new Color32(24, 72, 120, 255);
+                }
                 source.SetPixels32(pixels);
                 source.Apply();
                 File.WriteAllBytes(path, source.EncodeToPNG());
@@ -486,6 +569,28 @@ namespace SDFUI.Tests
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.SaveAndReimport();
             return path;
+        }
+
+        private static void SaveCapture(string filename, Color[] pixels)
+        {
+            var texture = new Texture2D(Resolution, Resolution, TextureFormat.RGBA32, false, true);
+            try
+            {
+                texture.SetPixels(pixels);
+                texture.Apply();
+                string directory = Path.GetFullPath(Path.Combine(Application.dataPath, "../Build/Validation"));
+                Directory.CreateDirectory(directory);
+                File.WriteAllBytes(Path.Combine(directory, filename), texture.EncodeToPNG());
+            }
+            finally { Object.DestroyImmediate(texture); }
+        }
+
+        private static void AssertColor(Color actual, Color expected, string context)
+        {
+            Assert.That(actual.r, Is.EqualTo(expected.r).Within(0.02f), context + " (red)");
+            Assert.That(actual.g, Is.EqualTo(expected.g).Within(0.02f), context + " (green)");
+            Assert.That(actual.b, Is.EqualTo(expected.b).Within(0.02f), context + " (blue)");
+            Assert.That(actual.a, Is.EqualTo(expected.a).Within(0.02f), context + " (alpha)");
         }
 
         private static Color Average(Color[] pixels, int x, int y, int width, int height)

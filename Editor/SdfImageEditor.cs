@@ -82,7 +82,7 @@ namespace SDFUI.Editor
                     {
                         if (ToggleSection(outlineEnabled, "Outline"))
                         {
-                            Field("outlineColor", "Color");
+                            DrawOutlineColor();
                             Field("outlineWidth", "Width");
                             Field("outlinePosition", "Position");
                             Field("outlineSoftness", "Softness");
@@ -108,6 +108,23 @@ namespace SDFUI.Editor
 
         private void Field(string name, string label) =>
             EditorGUILayout.PropertyField(serializedObject.FindProperty(name), new GUIContent(label));
+
+        private void DrawOutlineColor()
+        {
+            var useTextureColor = serializedObject.FindProperty("outlineUseTextureColor");
+            EditorGUILayout.PropertyField(useTextureColor, new GUIContent("Use Texture Color"));
+            if (!useTextureColor.boolValue || useTextureColor.hasMultipleDifferentValues)
+                Field("outlineColor", "Color");
+            if (useTextureColor.boolValue || useTextureColor.hasMultipleDifferentValues)
+            {
+                var intensity = serializedObject.FindProperty("outlineTextureColorIntensity");
+                EditorGUI.BeginChangeCheck();
+                EditorGUILayout.PropertyField(intensity, new GUIContent("Intensity"));
+                if (EditorGUI.EndChangeCheck()) intensity.floatValue = Mathf.Max(0, intensity.floatValue);
+                var opacity = serializedObject.FindProperty("outlineColor").FindPropertyRelative("a");
+                EditorGUILayout.Slider(opacity, 0, 1, new GUIContent("Opacity"));
+            }
+        }
 
         private static bool ToggleSection(SerializedProperty toggle, string title)
         {

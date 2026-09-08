@@ -21,6 +21,8 @@ namespace SDFUI
         [SerializeField, Min(0)] private float outlineWidth = 2;
         [SerializeField, Min(0)] private float outlineSoftness;
         [SerializeField] private Color outlineColor = Color.black;
+        [SerializeField] private bool outlineUseTextureColor;
+        [SerializeField, Min(0)] private float outlineTextureColorIntensity = 1;
         [SerializeField] private SdfOutlinePosition outlinePosition;
         [SerializeField] private Color shadowColor = new Color(0, 0, 0, 0.3f);
         [SerializeField] private Vector2 shadowOffset = new Vector2(2, -2);
@@ -65,6 +67,8 @@ namespace SDFUI
         public float OutlineWidth { get => outlineWidth; set => Set(ref outlineWidth, Positive(value)); }
         public float OutlineSoftness { get => outlineSoftness; set => Set(ref outlineSoftness, Positive(value)); }
         public Color OutlineColor { get => outlineColor; set => Set(ref outlineColor, SafeColor(value)); }
+        public bool OutlineUseTextureColor { get => outlineUseTextureColor; set => Set(ref outlineUseTextureColor, value); }
+        public float OutlineTextureColorIntensity { get => outlineTextureColorIntensity; set => Set(ref outlineTextureColorIntensity, Positive(value)); }
         public SdfOutlinePosition OutlinePosition { get => outlinePosition; set => Set(ref outlinePosition, ValidPosition(value)); }
         public Color ShadowColor { get => shadowColor; set => Set(ref shadowColor, SafeColor(value)); }
         public Vector2 ShadowOffset { get => shadowOffset; set => Set(ref shadowOffset, new Vector2(Finite(value.x), Finite(value.y))); }
@@ -261,6 +265,7 @@ namespace SDFUI
             outlineWidth = Positive(outlineWidth);
             outlineSoftness = Positive(outlineSoftness);
             outlineColor = SafeColor(outlineColor);
+            outlineTextureColorIntensity = Positive(outlineTextureColorIntensity);
             shadowColor = SafeColor(shadowColor);
             shadowOffset = new Vector2(Finite(shadowOffset.x), Finite(shadowOffset.y));
             shadowBlur = Positive(shadowBlur);
@@ -412,6 +417,7 @@ namespace SDFUI
             target.SetVector("_LocalBorder", border);
             target.SetVector("_Outline", new Vector4(settings.x, settings.y, (float)outlinePosition, 0));
             target.SetColor("_OutlineColor", outlineEnabled ? outlineColor : Color.clear);
+            target.SetVector("_OutlineTextureColor", new Vector4(outlineUseTextureColor ? 1 : 0, outlineTextureColorIntensity, 0, 0));
             target.SetColor("_ShadowColor", shadowEnabled ? shadowColor : Color.clear);
             target.SetVector("_Shadow", new Vector4(shadowOffset.x, shadowOffset.y, settings.z, settings.w));
         }

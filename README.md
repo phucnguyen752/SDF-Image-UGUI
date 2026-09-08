@@ -14,6 +14,8 @@ Cấu hình thuộc **texture nguồn**, áp dụng cho mọi sprite con trong t
 
 Nút **Cancel** hoặc tắt Auto Update huỷ công việc đang chờ/đang chạy và dừng tạo mới. Kết quả đã hoàn thành được giữ lại. Muốn tắt hiệu ứng thì tắt toggle **Outline** / **Shadow**; tắt cả hai sẽ dùng đường render Image bình thường.
 
+Trong **Outline**, bật **Use Texture Color** để lấy màu RGB từ texture làm màu viền. **Intensity** bằng `0` cho viền đen, `1` giữ màu gốc, lớn hơn `1` làm sáng hơn; **Opacity** chỉnh alpha của viền riêng. Khi tắt, viền dùng **Color** như trước và giữ lại các thiết lập đã nhập. Chế độ này không cần bake lại SDF đã có.
+
 Component `SdfAutoBake` cũ được giữ để các prefab cũ vẫn tải được. Image sẽ tiếp nhận source đã lưu; nút **Remove Legacy Auto Bake** trong Inspector bỏ helper thừa với Undo. Object tạo mới không cần helper này.
 
 ## TextMeshPro
@@ -80,6 +82,7 @@ Editor cần graphics device hỗ trợ AsyncGPUReadback. Chạy `-nographics` k
 ## Hiệu ứng và giới hạn
 
 - Outline ngoài/trong/giữa, width, color và softness; shadow có offset, blur, spread. Offset bằng 0 và shadow màu sáng tạo glow.
+- **Use Texture Color** thay RGB của outline bằng RGB texture × Intensity; không nhân thêm RGB của Outline Color hoặc Image Color. Alpha vẫn dùng Outline Color/Opacity và alpha toàn bộ Image như trước. Intensity không thay đổi alpha.
 - Giữ RGB/alpha nguồn cho phần fill. `Graphic.color` tint fill, alpha làm mờ toàn bộ hình và hiệu ứng một lần.
 - Simple, preserve aspect và nine-slice; layout, native size; quad mở rộng để không cắt outline/shadow.
 - Hỗ trợ `Mask`, `RectMask2D` (cả softness), `CanvasGroup`; vùng nhận raycast vẫn là RectTransform gốc.
@@ -119,13 +122,15 @@ public sealed class ButtonStyle : MonoBehaviour
 
 `SdfImage` kế thừa `Image`, có thể gán vào field `UnityEngine.UI.Image` hoặc Button Target Graphic. `image.sprite` và `image.overrideSprite` tự tìm dữ liệu SDF tương ứng, kể cả đổi sprite trong cùng một sheet. API cũ `image.Sprite` nhận `SdfSprite` vẫn còn để tương thích; code mới dùng `image.sprite` và `image.SdfData`. Với Button, bật Raycast Target; Canvas cần GraphicRaycaster/EventSystem như uGUI thông thường.
 
+Để dùng màu texture cho viền, đặt `image.OutlineUseTextureColor = true` và `image.OutlineTextureColorIntensity = 1f`. Mặc định chế độ này tắt; intensity mặc định `1`, nhận giá trị từ `0` trở lên. `image.OutlineColor.a` vẫn điều khiển opacity; RGB của `Image.color` chỉ tint phần fill.
+
 ## Demo, cài đặt và kiểm thử
 
 **Tools → SDF Image → Create Demo Prefab** tạo mẫu riêng trong `Assets/SDFImageDemo`, gồm ba ảnh nguồn bật SDF và prefab minh hoạ outline, shadow, glow, Sliced, RectMask2D. Chờ Ready rồi kéo prefab vào scene trống. Lệnh không sửa scene đang mở.
 
-![Demo render trong Unity URP](Documentation~/preview.png)
+![Use Texture Color: viền theo màu sao gradient, vòng rỗng và panel nine-slice, render trong Unity URP](Documentation~/sdf-outline-texture-color-demo.png)
 
-Hàng trên: outline ngoài, trong, giữa kèm shadow. Hàng dưới: glow, panel nine-slice, RectMask2D. Khi cài bằng UPM, có thể Import mẫu **Outline and Shadow Demo** trong Package Manager. Thư mục `Samples~` không tự import khi copy thư viện vào Assets.
+Ba ví dụ bật **Use Texture Color**, dùng **Intensity 0.5** và **Opacity 1**: màu viền theo gradient của sao, cả hai đường biên của vòng rỗng và cạnh panel nine-slice. Khi cài bằng UPM, có thể Import mẫu **Outline and Shadow Demo** trong Package Manager để thử outline, shadow, glow, nine-slice và RectMask2D. Thư mục `Samples~` không tự import khi copy thư viện vào Assets.
 
 Trong Package Manager, chọn cài package từ Git URL và nhập:
 
@@ -135,7 +140,7 @@ https://github.com/phucnguyen752/sdf-image.git#upm
 
 URL này theo nhánh `upm`. Sau mỗi release, chọn **SDF Image** trong Package Manager rồi bấm **Update**; không cần đổi URL hay số phiên bản. Nếu đang cài bằng tag như `#0.3.1`, dùng **Install package from Git URL** một lần với URL `#upm` ở trên để chuyển sang cách cập nhật này. Xem [hướng dẫn cập nhật Git package của Unity](https://docs.unity3d.com/6000.0/Documentation/Manual/upm-ui-update.html).
 
-Để cố định phiên bản này, dùng `https://github.com/phucnguyen752/sdf-image.git#0.4.0`. Bấm **Update** khi đang dùng tag này sẽ không chuyển sang tag của release mới.
+Để cố định phiên bản này, dùng `https://github.com/phucnguyen752/sdf-image.git#0.5.0`. Bấm **Update** khi đang dùng tag này sẽ không chuyển sang tag của release mới.
 
 Nhánh `upm` và các version tag chứa package `com.sdfimage.ugui` ngay tại root; không cần thêm `?path=`. Nhánh `main` chứa project Unity đầy đủ, thư viện ở `Assets/SDFImage`. Giữ `#upm` trong URL vì nhánh mặc định `main` không có package ở root.
 

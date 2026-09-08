@@ -1,5 +1,17 @@
 # Validation
 
+## 0.5.0 — texture-colored outlines (2026-09-08)
+
+Validated the optional SdfImage texture-color outline with Unity **6000.0.83f1** through the isolated local UPM fixture: **71/71 EditMode tests passed** in Built-in Gamma (14.756 s) and URP 17.0.4 Linear (13.784 s), with zero skips. StandaloneWindows64 player scripts compiled successfully with **17 runtime assemblies**.
+
+Two new GPU cases verify a freshly baked multicolor source with transparent padding, Outer/Inner/Center positions, intensity 0/0.5/1/2, unchanged face color, exact restoration of solid-color rendering, sliced images, independent opacity, Image tint, CanvasGroup fading and RectMask2D clipping. Existing component tests also cover default values, invalid intensity, retained settings and stencil-material refresh. Captures from both pipelines were visually inspected. No C# or shader compiler errors were found.
+
+Reports: [Built-in](Documentation~/Tests-TextureOutline-Builtin.xml), [URP Linear](Documentation~/Tests-TextureOutline-URP-Linear.xml), [player assemblies](Documentation~/TextureOutline-player-assemblies.txt). Report line endings are normalized for Git; XML content is preserved. The validated runtime, shader and test sources are unchanged for publication.
+
+The [Use Texture Color showcase](Documentation~/sdf-outline-texture-color-demo.png) is an actual 1600×900 Unity URP Linear render exported to sRGB. It uses copies of the shipped Star, Ring and RoundedPanel sprites, the normal asynchronous SDF baker, intensity 0.5 and opacity 1. The panel uses nine-slice rendering. The image was visually inspected at native resolution.
+
+No complete player build, mobile device run or mouse-driven Inspector interaction was performed for this change.
+
 ## 0.4.0 — TextMeshPro support (2026-09-08)
 
 Validated **0.4.0** through a local UPM installation in an isolated Unity **6000.0.83f1** project, with uGUI **2.0.0**, TMP Essential Resources, Windows and Direct3D 11. These reports cover the final runtime, shader and test sources for this release.

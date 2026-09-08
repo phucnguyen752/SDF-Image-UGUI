@@ -12,6 +12,7 @@ Shader "UI/SDF Image"
         _LocalBorder ("Local Border", Vector) = (0,0,0,0)
         _Outline ("Width, Softness, Position", Vector) = (0,0,0,0)
         _OutlineColor ("Outline Color", Color) = (0,0,0,1)
+        _OutlineTextureColor ("Use Texture Color, Intensity", Vector) = (0,1,0,0)
         _Shadow ("Offset, Blur, Spread", Vector) = (0,0,0,0)
         _ShadowColor ("Shadow Color", Color) = (0,0,0,0)
         _StencilComp ("Stencil Comparison", Float) = 8
@@ -70,7 +71,7 @@ Shader "UI/SDF Image"
 
             sampler2D _MainTex;
             sampler2D _SdfTex;
-            float4 _SourceSize, _ImageRect, _SourceBorder, _LocalBorder, _Outline, _Shadow;
+            float4 _SourceSize, _ImageRect, _SourceBorder, _LocalBorder, _Outline, _OutlineTextureColor, _Shadow;
             fixed4 _Color, _OutlineColor, _ShadowColor;
             float4 _ClipRect;
             float _UIMaskSoftnessX, _UIMaskSoftnessY, _HasSprite;
@@ -148,7 +149,7 @@ Shader "UI/SDF Image"
                 return smoothstep(-edge, edge, distance);
             }
 
-            fixed4 frag(v2f i) : SV_Target
+            float4 frag(v2f i) : SV_Target
             {
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
                 float4 mapping = SourcePoint(i.localPosition);
@@ -158,6 +159,10 @@ Shader "UI/SDF Image"
                 float2 sdf = LocalDistance(rawDistance, i.localPosition, mapping.zw);
                 float domain = Domain(source) * _HasSprite;
                 fixed4 fill = tex2D(_MainTex, uv);
+                // The bake dilates source RGB into transparent padding. Reuse this untinted
+                // sample before premultiplication; outline alpha still comes from Outline Color.
+                float3 outlineRgb = _OutlineTextureColor.x > 0.5
+                    ? fill.rgb * _OutlineTextureColor.y : _OutlineColor.rgb;
                 fill.rgb *= i.color.rgb;
                 fill.a *= domain;
                 fill.rgb *= fill.a;
@@ -178,7 +183,7 @@ Shader "UI/SDF Image"
                 outerCoverage = lerp(outerCoverage, joinedCoverage, saturate(outerWidth / max(sdf.y, 0.001)));
                 float outerAlpha = (1 - fill.a) * outerCoverage * domain * _OutlineColor.a;
                 float innerAlpha = min(innerRing * domain, fill.a) * _OutlineColor.a;
-                fixed4 foreground = fixed4(_OutlineColor.rgb * (outerAlpha + innerAlpha)
+                float4 foreground = float4(outlineRgb * (outerAlpha + innerAlpha)
                     + fill.rgb * (1 - innerAlpha / max(fill.a, 0.0001)), fill.a + outerAlpha);
 
                 // Shift in local units BEFORE remapping; simply offsetting UVs would distort sliced shadows.
@@ -187,7 +192,7 @@ Shader "UI/SDF Image"
                 float shadowRaw = tex2D(_SdfTex, TextureUV(shadowSource)).r;
                 float2 shadowSdf = LocalDistance(shadowRaw, i.localPosition, shadowMapping.zw);
                 float shadowAlpha = Coverage(shadowSdf.x + _Shadow.w, shadowSdf.y, _Shadow.z) * _ShadowColor.a * Domain(shadowSource) * _HasSprite;
-                fixed4 result = foreground + fixed4(_ShadowColor.rgb * shadowAlpha, shadowAlpha) * (1 - foreground.a);
+                float4 result = foreground + fixed4(_ShadowColor.rgb * shadowAlpha, shadowAlpha) * (1 - foreground.a);
                 // Vertex/CanvasGroup alpha fades the composite exactly once.
                 result *= i.color.a;
                 #ifdef UNITY_UI_CLIP_RECT
