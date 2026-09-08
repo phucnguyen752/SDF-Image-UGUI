@@ -1,6 +1,6 @@
 {
   "name": "SDFUI",
   "rootNamespace": "SDFUI",
-  "references": ["UnityEngine.UI"],
+  "references": ["UnityEngine.UI", "Unity.TextMeshPro"],
   "autoReferenced": true
 }

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-09-08
+
+- Add `SdfText`, a `TextMeshProUGUI` component with outline and soft shadow drawn behind all character faces, including fallback font and material submeshes.
+- Reuse TMP meshes and SDF font atlases for dynamic text; expose Canvas-unit effect controls below the standard TMP Inspector.
+- Keep thick outlines smooth at concave glyph corners with stable font-atlas distance scaling.
+- Add **GameObject → UI → SDF Text** for creating TMP labels with SDF effects.
+- Add rendered SDF Text examples to the package documentation and release notes.
+
 ## 0.3.1 — 2026-09-07
 
 - Add package author name `Phuc Nguyen` and GitHub profile URL so Unity Package Manager can display the author.
