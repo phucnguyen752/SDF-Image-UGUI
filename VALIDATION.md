@@ -1,4 +1,24 @@
-# Validation — 2026-09-07
+# Validation
+
+## 0.4.0 — TextMeshPro support (2026-09-08)
+
+Validated **0.4.0** through a local UPM installation in an isolated Unity **6000.0.83f1** project, with uGUI **2.0.0**, TMP Essential Resources, Windows and Direct3D 11. These reports cover the final runtime, shader and test sources for this release.
+
+| Check | Result |
+| --- | --- |
+| Built-in pipeline, Gamma | **69 / 69 EditMode tests passed**, zero skipped, 12.223 s |
+| URP 17.0.4, Linear, HDR off, MSAA 1 | **69 / 69 EditMode tests passed**, zero skipped, 12.262 s |
+| StandaloneWindows64 player script compilation | **Passed**, 17 runtime assemblies including `SDFUI.dll` and `Unity.TextMeshPro.dll`; no SDFUI Editor/test assemblies |
+
+The suite includes the 58 existing sprite/package tests and 11 new TMP cases. The TMP checks cover tightly spaced glyphs and fallback materials with every opaque face remaining in front of the effects; dynamic text, empty text, `ClearMesh` and disabling; ancestor stencil/rectangular masks and animated outline width; same-frame unculling after text layout changes; a custom mesh supplied through `UpdateGeometry`; CanvasGroup fading; negative shadow spread; unchanged preferred size, rectangle and shared font material. An independent geometric-dilation check verifies that a seven-unit outline has no holes within five pixels of opaque concave glyph faces. All cases also passed in Linear rendering.
+
+Raw reports: [Built-in](Documentation~/Tests-TMP-Builtin.xml), [URP Linear](Documentation~/Tests-TMP-URP-Linear.xml). [Player assembly list](Documentation~/TMP-player-assemblies.txt). All three final logs contain no C# errors, shader compiler errors or native file-write errors. The close-letter and fallback-font GPU captures were visually inspected in both pipelines.
+
+![Tightly spaced SdfText glyphs rendered in URP Linear](Documentation~/tmp-preview.png)
+
+The [SDF Text showcase](Documentation~/sdf-text-demo.png) is an actual 1600×900 URP Linear render. Its three labels use Liberation Sans SDFAA generated at sampling size 256, padding 48 and a 2048×2048 atlas; the colored outline uses width 7 and softness 0.8. The atlas was generated only for the capture, without changing the consuming project's font assets. The final image was inspected at native resolution.
+
+No complete player build, Android/iOS device run or mobile performance profile was performed. This support is for SDF-font `TextMeshProUGUI` on Canvas; atlas padding limits expansion/blur, and Canvas/Mask/RectMask2D components must be on a parent. Live domain reload and mouse-driven Inspector interaction were not exercised by the automated suite. See the [TMP usage instructions](README.md#textmeshpro).
 
 ## 0.3.1 metadata patch
 

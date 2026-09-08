@@ -1,6 +1,6 @@
 # SDF Image
 
-Outline và shadow cho **Unity 6 / uGUI (Canvas)**. Thư viện độc lập, chỉ cần Unity uGUI.
+Outline và shadow cho **Unity 6 / uGUI (Canvas)**, gồm sprite và chữ TextMeshPro. Thư viện độc lập, dùng uGUI 2.0 cùng TextMeshPro đi kèm.
 
 ## Dùng nhanh
 
@@ -15,6 +15,48 @@ Cấu hình thuộc **texture nguồn**, áp dụng cho mọi sprite con trong t
 Nút **Cancel** hoặc tắt Auto Update huỷ công việc đang chờ/đang chạy và dừng tạo mới. Kết quả đã hoàn thành được giữ lại. Muốn tắt hiệu ứng thì tắt toggle **Outline** / **Shadow**; tắt cả hai sẽ dùng đường render Image bình thường.
 
 Component `SdfAutoBake` cũ được giữ để các prefab cũ vẫn tải được. Image sẽ tiếp nhận source đã lưu; nút **Remove Legacy Auto Bake** trong Inspector bỏ helper thừa với Undo. Object tạo mới không cần helper này.
+
+## TextMeshPro
+
+1. Tạo **GameObject → UI → SDF Text**. Component `SdfText` kế thừa `TextMeshProUGUI`, giữ Inspector chuẩn TMP để chỉnh nội dung, font, cỡ chữ, alignment, spacing, auto size và rich text.
+2. Gán font TMP dùng atlas SDF. Không cần Generate SDF hoặc bake chữ thành sprite.
+3. Bật **Outline** hoặc **Shadow** trong phần **SDF Effects** bên dưới Inspector. Width, softness, offset, blur và spread dùng đơn vị local của Canvas.
+
+Toàn bộ shadow được vẽ trước, sau đó toàn bộ outline, cuối cùng là mặt chữ. Viền của ký tự vẽ sau không đè lên mặt ký tự bên cạnh, kể cả khi chữ sát nhau hoặc dùng fallback font/nhiều material. Component dùng mesh và font atlas hiện tại của TMP, tự cập nhật khi đổi nội dung, layout hoặc font lúc runtime. Hiệu ứng Outline/Underlay/Glow gốc của TMP được tắt trên material render riêng; font và material nguồn không bị sửa.
+
+![Demo SDF Text: chữ sát nhau, viền màu và glow mềm, render trực tiếp trong Unity URP](Documentation~/sdf-text-demo.png)
+
+Ba mẫu dùng cùng component `SdfText`: outline và shadow sau chữ sát nhau, viền màu cho label nhiều dòng, và glow tạo từ shadow không có offset. Ảnh được render trực tiếp trong URP Linear. Xem thêm [ảnh kiểm tra chữ sát nhau và báo cáo render](VALIDATION.md).
+
+Với label TMP có sẵn, tạo **SDF Text** mới, gán lại font, nội dung và thiết lập layout rồi cập nhật các tham chiếu sang component mới. Chưa có công cụ tự chuyển component TMP cũ; không thay trực tiếp script của TMP trong scene hoặc prefab.
+
+`SdfText` vẫn gán được vào field `TMP_Text` hoặc `TextMeshProUGUI`; tiếp tục dùng `text`, `SetText`, `font`, `fontSize` và API TMP thông thường:
+
+```csharp
+using SDFUI;
+using UnityEngine;
+
+public sealed class ScoreLabel : MonoBehaviour
+{
+    [SerializeField] private SdfText label;
+
+    public void SetScore(int score)
+    {
+        label.SetText("Score: {0}", score);
+        label.OutlineEnabled = true;
+        label.OutlineWidth = 2;
+        label.OutlineColor = Color.black;
+        label.ShadowEnabled = true;
+        label.ShadowOffset = new Vector2(0, -3);
+        label.ShadowBlur = 2;
+    }
+}
+```
+
+- Chỉ hỗ trợ `TextMeshProUGUI` trên Canvas, chưa hỗ trợ `TextMeshPro` 3D hoặc shader font tuỳ biến không dùng SDF.
+- Độ rộng/blur bị giới hạn bởi padding và distance range đã có trong font atlas. Nếu hiệu ứng ngừng rộng thêm, tạo lại font atlas với padding lớn hơn; thay thông số bake sprite không ảnh hưởng font.
+- Hỗ trợ Canvas cha, `Mask`, `RectMask2D` và `CanvasGroup` trong hierarchy. Đặt `Canvas`, `Mask` và `RectMask2D` ở object cha, không đặt trực tiếp trên object chữ; trường hợp này sẽ tắt hiệu ứng SDF.
+- Có thêm lớp render và material cho hiệu ứng, theo các material font đang dùng. Chữ nhiều fallback font hoặc shadow lớn sẽ tăng draw call/overdraw.
 
 ## Texture nằm trong sprite gốc
 
@@ -41,7 +83,7 @@ Editor cần graphics device hỗ trợ AsyncGPUReadback. Chạy `-nographics` k
 - Giữ RGB/alpha nguồn cho phần fill. `Graphic.color` tint fill, alpha làm mờ toàn bộ hình và hiệu ứng một lần.
 - Simple, preserve aspect và nine-slice; layout, native size; quad mở rộng để không cắt outline/shadow.
 - Hỗ trợ `Mask`, `RectMask2D` (cả softness), `CanvasGroup`; vùng nhận raycast vẫn là RectTransform gốc.
-- SDF hỗ trợ Simple và Sliced với Fill Center. Filled/radial fill, Tiled và Sliced tắt Fill Center dùng Image Unity bình thường, không có hiệu ứng SDF. Chưa tích hợp SpriteRenderer, UI Toolkit, TMP, Coffee SoftMask/UIEffect.
+- SDF Image hỗ trợ Simple và Sliced với Fill Center. Filled/radial fill, Tiled và Sliced tắt Fill Center dùng Image Unity bình thường, không có hiệu ứng SDF. Hỗ trợ chữ qua `SdfText` như phần TextMeshPro ở trên. Chưa tích hợp SpriteRenderer, UI Toolkit, Coffee SoftMask/UIEffect.
 
 Width/softness/offset/blur/spread dùng **đơn vị local của Canvas**. Padding và Distance Range dùng **pixel của ảnh SDF sau giảm kích thước**. Shader giới hạn hiệu ứng theo lượng padding/distance có sẵn; tăng padding và range nếu viền ngừng rộng thêm. Offset shadow độc lập với giới hạn distance. Biến đổi Canvas/object sẽ scale cả hiệu ứng.
 
@@ -93,7 +135,7 @@ https://github.com/phucnguyen752/sdf-image.git#upm
 
 URL này theo nhánh `upm`. Sau mỗi release, chọn **SDF Image** trong Package Manager rồi bấm **Update**; không cần đổi URL hay số phiên bản. Nếu đang cài bằng tag như `#0.3.1`, dùng **Install package from Git URL** một lần với URL `#upm` ở trên để chuyển sang cách cập nhật này. Xem [hướng dẫn cập nhật Git package của Unity](https://docs.unity3d.com/6000.0/Documentation/Manual/upm-ui-update.html).
 
-Để cố định phiên bản, dùng `https://github.com/phucnguyen752/sdf-image.git#0.3.1`. Bấm **Update** khi đang dùng tag này sẽ không chuyển sang tag của release mới.
+Để cố định phiên bản này, dùng `https://github.com/phucnguyen752/sdf-image.git#0.4.0`. Bấm **Update** khi đang dùng tag này sẽ không chuyển sang tag của release mới.
 
 Nhánh `upm` và các version tag chứa package `com.sdfimage.ugui` ngay tại root; không cần thêm `?path=`. Nhánh `main` chứa project Unity đầy đủ, thư viện ở `Assets/SDFImage`. Giữ `#upm` trong URL vì nhánh mặc định `main` không có package ở root.
 
@@ -101,6 +143,6 @@ Cũng có thể copy `Assets/SDFImage` cùng `.meta` sang project Unity 6 có uG
 
 Namespace và assembly dùng `SDFUI`, `SDFUI.Editor`, `SDFUI.Tests.Editor`. Khi cập nhật từ bản 0.2, cập nhật namespace trong code và package ID trong manifest; giữ `.meta` của script để component cũ vẫn được nhận diện. Cấu hình nguồn và tham chiếu dữ liệu bake cần được chuyển cùng thư viện. Icon component là PNG 64×64, xuất từ [SVG gốc](Documentation~/SdfImage.svg).
 
-Chạy `SDFUI.Tests` trong Window → General → Test Runner → EditMode. Với cài UPM, thêm package vào `testables` trong manifest và cài Unity Test Framework. Kết quả kiểm tra thực tế và giới hạn xem [VALIDATION.md](VALIDATION.md).
+Chạy `SDFUI.Tests` trong Window → General → Test Runner → EditMode. Với cài UPM, thêm package vào `testables` trong manifest và cài Unity Test Framework. Nhóm `SdfTextTests` cần **Window → TextMeshPro → Import TMP Essential Resources**; thiếu font mẫu hoặc chạy không có GPU sẽ bỏ qua nhóm kiểm tra render chữ. Kết quả kiểm tra thực tế và giới hạn xem [VALIDATION.md](VALIDATION.md).
 
 Tham khảo theo yêu cầu: [SDF Image – Quality UI Outlines and Shadow](https://marketplace.unity.com/packages/tools/gui/sdf-image-quality-ui-outlines-and-shadow-244942). Đây là implementation độc lập với phạm vi ở trên.

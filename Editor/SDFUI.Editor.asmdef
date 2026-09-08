@@ -1,7 +1,7 @@
 {
   "name": "SDFUI.Editor",
   "rootNamespace": "SDFUI.Editor",
-  "references": ["SDFUI", "UnityEngine.UI", "UnityEditor.UI"],
+  "references": ["SDFUI", "UnityEngine.UI", "UnityEditor.UI", "Unity.TextMeshPro", "Unity.TextMeshPro.Editor"],
   "includePlatforms": ["Editor"],
   "autoReferenced": true
 }
